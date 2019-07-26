@@ -7,13 +7,18 @@
 #   a function to provide a result to its
 #   caller without destroying local variables.
 #------------------------------------------------
-def countdown():
-    i = 5
-    while i > 0 :
-        yield i
-        i-=1
+# Using generators results in improved
+#   performance
 #------------------------------------------------
-for i in countdown():
-    print(i)
+def numbers(x):
+    for i in range(x) :
+        if i%2==0:
+            yield i
+#------------------------------------------------
+#for i in numbers(12):
+#    print(numbers(11))
+#    print(i)
+#------------------------------------------------
+print(list(numbers(20)))
 #================================================
 # vim: ft=python:nu
